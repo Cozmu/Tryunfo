@@ -109,7 +109,7 @@ class Form extends React.Component {
 }
 
 /* Form.propType = {
-  cardName: PropType.string.isRequired,
+  cardName: PropType.string,
   cardDescription: PropType.string,
   cardAttr1: PropType.string,
   cardAttr2: PropType.string,
