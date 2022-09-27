@@ -36,7 +36,7 @@ class Card extends React.Component {
   }
 }
 
-/* Card.propTypes = {
+Card.propTypes = {
   cardName: PropType.string,
   cardDescription: PropType.string,
   cardAttr1: PropType.number,
@@ -45,6 +45,6 @@ class Card extends React.Component {
   cardImage: PropType.string,
   cardRare: PropType.string,
   cardTrunfo: PropType.bool,
-}; */
+}.isRequired;
 
 export default Card;
