@@ -19,7 +19,7 @@ class App extends React.Component {
     const { cardAttr1, cardAttr2, cardAttr3 } = this.state;
     const MaxLeagth = 90;
     const max = 210;
-    // const sum = number(cardAttr1) + number(cardAttr2) + number(cardAttr3);
+    const sum = Number(cardAttr1) + Number(cardAttr2) + Number(cardAttr3);
     const atributoUm = cardAttr1 > MaxLeagth || cardAttr1 < 0;
     const atributoDois = cardAttr2 > MaxLeagth || cardAttr2 < 0;
     const atributoTres = cardAttr3 > MaxLeagth || cardAttr3 < 0;
