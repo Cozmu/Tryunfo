@@ -14,7 +14,6 @@ class App extends React.Component {
     cardTrunfo: false,
     hasTrunfo: false,
     savedCard: [],
-    buttonBlocker: false,
   };
 
   isSaveButtonDisabled = () => {
@@ -55,7 +54,6 @@ class App extends React.Component {
       cardRare,
       cardTrunfo,
       hasTrunfo,
-      buttonBlocker,
     } = this.state;
     const newCard = {
       cardName,
@@ -67,12 +65,8 @@ class App extends React.Component {
       cardRare,
       cardTrunfo,
       hasTrunfo,
-      buttonBlocker,
     };
     this.setState((prev) => ({
-      savedCard: [...prev.savedCard, newCard],
-    }));
-    this.setState({
       cardName: '',
       cardDescription: '',
       cardAttr1: 0,
@@ -81,15 +75,10 @@ class App extends React.Component {
       cardImage: '',
       cardRare: '',
       cardTrunfo: false,
-      hasTrunfo: true,
-      buttonBlocker: true,
-    });
+      savedCard: [...prev.savedCard, newCard],
+      hasTrunfo: [...prev.savedCard, newCard].some((card) => card.cardTrunfo),
+    }));
   };
-
-  /*  buttonBlocker = () => {
-    const { hasTrunfo, savedCard } = this.state;
-
-  }; */
 
   render() {
     return (
@@ -100,7 +89,6 @@ class App extends React.Component {
           onInputChange={ this.onInputChange }
           isSaveButtonDisabled={ this.isSaveButtonDisabled }
           onSaveButtonClick={ this.onSaveButtonClick }
-          buttonBlocker={ this.buttonBlocker }
         />
         <Card { ...this.state } />
       </div>

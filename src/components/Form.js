@@ -16,7 +16,6 @@ class Form extends React.Component {
       isSaveButtonDisabled,
       onInputChange,
       onSaveButtonClick,
-      buttonBlocker,
     } = this.props;
     return (
       <form>
@@ -101,7 +100,6 @@ class Form extends React.Component {
             checked={ cardTrunfo }
             name="cardTrunfo"
             onChange={ onInputChange }
-            disabled={ buttonBlocker }
           />}
         </label>
         <button
