@@ -12,6 +12,7 @@ class App extends React.Component {
     cardImage: '',
     cardRare: '',
     cardTrunfo: false,
+    hasTrunfo: false,
     savedCard: [],
   };
 
@@ -52,6 +53,7 @@ class App extends React.Component {
       cardImage,
       cardRare,
       cardTrunfo,
+      hasTrunfo,
     } = this.state;
     const newCard = {
       cardName,
@@ -62,6 +64,7 @@ class App extends React.Component {
       cardImage,
       cardRare,
       cardTrunfo,
+      hasTrunfo,
     };
     this.setState((prev) => ({
       savedCard: [...prev.savedCard, newCard],
@@ -75,6 +78,7 @@ class App extends React.Component {
       cardImage: '',
       cardRare: '',
       cardTrunfo: false,
+      hasTrunfo: false,
     });
   };
 

@@ -91,14 +91,16 @@ class Form extends React.Component {
           </select>
         </label>
         <label htmlFor="Super-Trunfo">
-          <input
+          {hasTrunfo && <span>Você já tem um Super Trunfo em seu baralho</span>}
+          {!hasTrunfo && <input
             id="Super-Trunfo"
             type="checkbox"
             data-testid="trunfo-input"
             checked={ cardTrunfo }
             name="cardTrunfo"
             onChange={ onInputChange }
-          />
+            disabled={ hasTrunfo }
+          />}
         </label>
         <button
           id="save"
@@ -127,6 +129,6 @@ class Form extends React.Component {
   isSaveButtonDisabled: PropTypes.bool,
   onInputChange: PropTypes.func,
   onSaveButtonClick: PropTypes.func,
-}.isRequired; */
-
+}.isRequired;
+ */
 export default Form;
