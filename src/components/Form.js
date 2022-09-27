@@ -29,9 +29,8 @@ class Form extends React.Component {
           />
         </label>
         <label htmlFor="description">
-          <input
+          <textarea
             id="description"
-            type="textarea"
             data-testid="description-input"
             value={ cardDescription }
             name="cardDescription"
@@ -105,7 +104,7 @@ class Form extends React.Component {
           id="save"
           type="button"
           data-testid="save-button"
-          disabled={ isSaveButtonDisabled }
+          disabled={ !isSaveButtonDisabled() }
           onClick={ onSaveButtonClick }
         >
           Salvar
