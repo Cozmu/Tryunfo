@@ -80,6 +80,13 @@ class App extends React.Component {
     }));
   };
 
+  HandleRemoveCards = (nome) => {
+    const { savedCard } = this.state;
+    const cards = savedCard.filter(({ cardName }) => cardName !== nome);
+    const reset = savedCard.some(({ hasTrunfo }) => hasTrunfo !== false);
+    this.setState({ savedCard: cards, hasTrunfo: reset });
+  };
+
   render() {
     const { savedCard } = this.state;
     return (
@@ -92,8 +99,24 @@ class App extends React.Component {
           onSaveButtonClick={ this.onSaveButtonClick }
         />
         <Card { ...this.state } />
-        <section className="Cards">
-          {savedCard.map((element, index) => <Card key={ index } { ...element } />)}
+        <section className="filter-container">
+          <div />
+        </section>
+        <section id="remove-pai" className="Cards">
+          {savedCard.map((element, index) => (
+            <article key={ index }>
+              <Card
+                { ...element }
+              />
+              <button
+                data-testid="delete-button"
+                type="button"
+                onClick={ () => this.HandleRemoveCards(element.cardName) }
+              >
+                Excluir
+              </button>
+            </article>
+          ))}
         </section>
       </>
     );
