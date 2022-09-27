@@ -114,7 +114,7 @@ class Form extends React.Component {
   }
 }
 
-Form.propTypes = {
+/* Form.propTypes = {
   cardName: PropTypes.string,
   cardDescription: PropTypes.string,
   cardAttr1: PropTypes.string,
@@ -127,6 +127,6 @@ Form.propTypes = {
   isSaveButtonDisabled: PropTypes.bool,
   onInputChange: PropTypes.func,
   onSaveButtonClick: PropTypes.func,
-}.isRequired;
+}.isRequired; */
 
 export default Form;
