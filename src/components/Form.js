@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class Form extends React.Component {
   render() {
@@ -15,6 +16,7 @@ class Form extends React.Component {
       isSaveButtonDisabled,
       onInputChange,
       onSaveButtonClick,
+      buttonBlocker,
     } = this.props;
     return (
       <form>
@@ -99,7 +101,7 @@ class Form extends React.Component {
             checked={ cardTrunfo }
             name="cardTrunfo"
             onChange={ onInputChange }
-            disabled={ hasTrunfo }
+            disabled={ buttonBlocker }
           />}
         </label>
         <button
@@ -116,7 +118,7 @@ class Form extends React.Component {
   }
 }
 
-/* Form.propTypes = {
+Form.propTypes = {
   cardName: PropTypes.string,
   cardDescription: PropTypes.string,
   cardAttr1: PropTypes.string,
@@ -130,5 +132,5 @@ class Form extends React.Component {
   onInputChange: PropTypes.func,
   onSaveButtonClick: PropTypes.func,
 }.isRequired;
- */
+
 export default Form;
