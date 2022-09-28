@@ -89,7 +89,7 @@ class App extends React.Component {
   };
 
   handleSearchValue = (e) => {
-    this.setState({ searchValue: e.target.value }, () => console.log(searchValue));
+    this.setState({ searchValue: e.target.value });
   };
 
   render() {
@@ -118,7 +118,7 @@ class App extends React.Component {
           </form>
         </section>
         <section id="remove-pai" className="Cards">
-          {savedCard.filter((card) => card.name.toLowerCase().startsWith(searchValue))
+          {savedCard.filter((card) => card.cardName.toLowerCase().startsWith(searchValue))
             .map((element, index) => (
               <article key={ index }>
                 <Card
@@ -140,3 +140,4 @@ class App extends React.Component {
 }
 
 export default App;
+// .
