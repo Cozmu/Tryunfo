@@ -34,13 +34,10 @@ class App extends React.Component {
     if (atributoUm || atributoDois || atributoTres) {
       return true;
     }
-    if (cardName.length > 0
+    return !(cardName.length > 0
       && cardDescription.length > 0
       && cardImage.length > 0
-      && cardRare.length > 0) {
-      return false;
-    }
-    return true;
+      && cardRare.length > 0);
   };
 
   onInputChange = (e) => {
