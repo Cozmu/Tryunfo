@@ -14,6 +14,7 @@ class App extends React.Component {
     cardTrunfo: false,
     hasTrunfo: false,
     savedCard: [],
+    searchValue: '',
   };
 
   isSaveButtonDisabled = () => {
@@ -83,12 +84,16 @@ class App extends React.Component {
   HandleRemoveCards = (nome) => {
     const { savedCard } = this.state;
     const cards = savedCard.filter(({ cardName }) => cardName !== nome);
-    const reset = savedCard.some(({ hasTrunfo }) => hasTrunfo !== false);
+    const reset = savedCard.some(({ hasTrunfo, cardTrunfo }) => hasTrunfo === cardTrunfo); // bug aqui :(
     this.setState({ savedCard: cards, hasTrunfo: reset });
   };
 
+  handleSearchValue = (e) => {
+    this.setState({ searchValue: e.target.value }, () => console.log(searchValue));
+  };
+
   render() {
-    const { savedCard } = this.state;
+    const { savedCard, searchValue } = this.state;
     return (
       <>
         <h1>INICIANDO PROJETO</h1>
@@ -100,23 +105,34 @@ class App extends React.Component {
         />
         <Card { ...this.state } />
         <section className="filter-container">
-          <div />
+          <form>
+            <label htmlFor="pesquisa">
+              <input
+                id="pesquisa"
+                type="text"
+                data-testid="name-filter"
+                value={ searchValue }
+                onChange={ this.handleSearchValue }
+              />
+            </label>
+          </form>
         </section>
         <section id="remove-pai" className="Cards">
-          {savedCard.map((element, index) => (
-            <article key={ index }>
-              <Card
-                { ...element }
-              />
-              <button
-                data-testid="delete-button"
-                type="button"
-                onClick={ () => this.HandleRemoveCards(element.cardName) }
-              >
-                Excluir
-              </button>
-            </article>
-          ))}
+          {savedCard.filter((card) => card.name.toLowerCase().startsWith(searchValue))
+            .map((element, index) => (
+              <article key={ index }>
+                <Card
+                  { ...element }
+                />
+                <button
+                  data-testid="delete-button"
+                  type="button"
+                  onClick={ () => this.HandleRemoveCards(element.cardName) }
+                >
+                  Excluir
+                </button>
+              </article>
+            ))}
         </section>
       </>
     );
