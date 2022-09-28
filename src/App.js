@@ -15,6 +15,8 @@ class App extends React.Component {
     hasTrunfo: false,
     savedCard: [],
     searchValue: '',
+    raridade: 'todas',
+    trunfoFilter: false,
   };
 
   isSaveButtonDisabled = () => {
@@ -27,14 +29,18 @@ class App extends React.Component {
     const atributoDois = cardAttr2 > MaxLeagth || cardAttr2 < 0;
     const atributoTres = cardAttr3 > MaxLeagth || cardAttr3 < 0;
     if (sum > max) {
-      return false;
-    }
-    if (atributoUm || atributoDois || atributoTres) {
-      return false;
-    }
-    if (cardName && cardDescription && cardImage && cardRare) {
       return true;
     }
+    if (atributoUm || atributoDois || atributoTres) {
+      return true;
+    }
+    if (cardName.length > 0
+      && cardDescription.length > 0
+      && cardImage.length > 0
+      && cardRare.length > 0) {
+      return false;
+    }
+    return true;
   };
 
   onInputChange = (e) => {
@@ -84,7 +90,7 @@ class App extends React.Component {
   HandleRemoveCards = (nome) => {
     const { savedCard } = this.state;
     const cards = savedCard.filter(({ cardName }) => cardName !== nome);
-    const reset = savedCard.some(({ hasTrunfo, cardTrunfo }) => hasTrunfo === cardTrunfo); // bug aqui :(
+    const reset = savedCard.some(({ hasTrunfo }) => hasTrunfo !== false); // bug aqui :(
     this.setState({ savedCard: cards, hasTrunfo: reset });
   };
 
@@ -93,32 +99,59 @@ class App extends React.Component {
   };
 
   render() {
-    const { savedCard, searchValue } = this.state;
+    const { savedCard, searchValue, raridade, trunfoFilter } = this.state;
+    const lower = searchValue.toLocaleLowerCase();
     return (
       <>
         <h1>INICIANDO PROJETO</h1>
         <Form
           { ...this.state }
           onInputChange={ this.onInputChange }
-          isSaveButtonDisabled={ this.isSaveButtonDisabled }
+          isSaveButtonDisabled={ this.isSaveButtonDisabled() }
           onSaveButtonClick={ this.onSaveButtonClick }
         />
         <Card { ...this.state } />
         <section className="filter-container">
-          <form>
-            <label htmlFor="pesquisa">
-              <input
-                id="pesquisa"
-                type="text"
-                data-testid="name-filter"
-                value={ searchValue }
-                onChange={ this.handleSearchValue }
-              />
-            </label>
-          </form>
+          <label htmlFor="pesquisa">
+            <input
+              id="pesquisa"
+              type="text"
+              data-testid="name-filter"
+              value={ searchValue }
+              onChange={ this.handleSearchValue }
+              disabled={ trunfoFilter }
+            />
+          </label>
+          <label htmlFor="rare-filter">
+            <select
+              onChange={ this.onInputChange }
+              name="raridade"
+              id="rare-filter"
+              data-testid="rare-filter"
+              disabled={ trunfoFilter }
+            >
+              <option value="todas">Todas</option>
+              <option value="normal">Normal</option>
+              <option value="raro">Raro</option>
+              <option value="muito raro">Muito Raro</option>
+            </select>
+          </label>
+          <label htmlFor="trunfo-filter">
+            Super Trunfo
+            <input
+              id="trunfo-filter"
+              type="checkbox"
+              data-testid="trunfo-filter"
+              name="trunfoFilter"
+              checked={ trunfoFilter }
+              onChange={ this.onInputChange }
+            />
+          </label>
         </section>
         <section id="remove-pai" className="Cards">
-          {savedCard.filter((card) => card.cardName.toLowerCase().startsWith(searchValue))
+          {savedCard.filter((card) => card.cardName.toLowerCase().includes(lower)
+          && (raridade === 'todas' || raridade === card.cardRare)
+          && (trunfoFilter === false || card.cardTrunfo === trunfoFilter))
             .map((element, index) => (
               <article key={ index }>
                 <Card
@@ -140,4 +173,3 @@ class App extends React.Component {
 }
 
 export default App;
-// .
