@@ -100,14 +100,16 @@ class App extends React.Component {
     const lower = searchValue.toLocaleLowerCase();
     return (
       <>
-        <h1>INICIANDO PROJETO</h1>
-        <Form
-          { ...this.state }
-          onInputChange={ this.onInputChange }
-          isSaveButtonDisabled={ this.isSaveButtonDisabled() }
-          onSaveButtonClick={ this.onSaveButtonClick }
-        />
-        <Card { ...this.state } />
+        <section className="Interface-container">
+          <h1>INICIANDO PROJETO</h1>
+          <Form
+            { ...this.state }
+            onInputChange={ this.onInputChange }
+            isSaveButtonDisabled={ this.isSaveButtonDisabled() }
+            onSaveButtonClick={ this.onSaveButtonClick }
+          />
+          <Card { ...this.state } />
+        </section>
         <section className="filter-container">
           <label htmlFor="pesquisa">
             <input

@@ -1,0 +1,12 @@
+.Interface-container {
+  background-color: white;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 70px auto;
+  width: 80%;
+}
+
+.Interface-container h1 {
+  text-align: center;
+  width: 100%;
+}
