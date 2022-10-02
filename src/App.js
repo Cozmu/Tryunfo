@@ -6,9 +6,9 @@ class App extends React.Component {
   state = {
     cardName: '',
     cardDescription: '',
-    cardAttr1: 0,
-    cardAttr2: 0,
-    cardAttr3: 0,
+    cardAttr1: '',
+    cardAttr2: '',
+    cardAttr3: '',
     cardImage: '',
     cardRare: '',
     cardTrunfo: false,
@@ -73,9 +73,9 @@ class App extends React.Component {
     this.setState((prev) => ({
       cardName: '',
       cardDescription: '',
-      cardAttr1: 0,
-      cardAttr2: 0,
-      cardAttr3: 0,
+      cardAttr1: '',
+      cardAttr2: '',
+      cardAttr3: '',
       cardImage: '',
       cardRare: '',
       cardTrunfo: false,
@@ -101,7 +101,6 @@ class App extends React.Component {
     return (
       <>
         <section className="Interface-container">
-          <h1>INICIANDO PROJETO</h1>
           <Form
             { ...this.state }
             onInputChange={ this.onInputChange }

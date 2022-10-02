@@ -2,11 +2,146 @@
   background-color: white;
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-around;
   margin: 70px auto;
-  width: 80%;
+  width: 90%;
 }
 
-.Interface-container h1 {
-  text-align: center;
+.form {
+  display: flex;
+  flex-direction: column;
+  height: 593px;
+  width: 404px;
+}
+
+.add-card {
+  margin-bottom: 10px;
+  margin-left: 15px;
   width: 100%;
 }
+
+.card-name {
+  border-bottom: 1px solid rgb(118, 118, 118);
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  font-size: 15px;
+  height: 37px;
+  margin-bottom: 5px;
+  outline: 0;
+  padding: 5px;
+  padding-bottom: 0;
+  width: 364px;
+}
+
+.description {
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  font-size: 15px;
+  height: 80px;
+  margin-bottom: 5px;
+  outline: 0;
+  padding: 5px;
+  padding-bottom: 0;
+  resize: vertical;
+  width: 364px;
+}
+
+.attr1 {
+  font-size: 15px;
+  height: 37px;
+  margin-bottom: 5px;
+  margin-left: 40px;
+  outline: 0;
+  padding: 5px;
+  width: 295px;
+}
+
+.attr2 {
+  font-size: 15px;
+  height: 37px;
+  margin-bottom: 5px;
+  margin-left: 40px;
+  outline: 0;
+  padding: 5px;
+  width: 294px;
+}
+
+.attr3 {
+  font-size: 15px;
+  height: 37px;
+  margin-bottom: 5px;
+  margin-left: 34px;
+  outline: 0;
+  padding: 5px;
+  width: 295px;
+}
+
+.img {
+  display: flex;
+}
+
+.img-container {
+  display: flex;
+}
+
+.card-image {
+  font-size: 15px;
+  height: 37px;
+  margin-bottom: 5px;
+  margin-left: 10px;
+  outline: 0;
+  padding: 5px;
+  width: 261px;
+}
+
+.adereco-container {
+  background-color: rgb(8, 16, 23);
+  border-bottom-right-radius: 2px;
+  border-top-right-radius: 2px;
+  height: 37px;
+  width: 34px;
+}
+
+.rarity {
+  background-color: white;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  cursor: pointer;
+  height: 40px;
+  margin-bottom: 10px;
+  outline: 0;
+  padding: 5px;
+  padding-bottom: 0;
+  width: 364px;
+}
+
+.submite-container {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.Super-Trunfo {
+  margin-right: 10px;
+}
+
+.save {
+  cursor: pointer;
+  height: 40px;
+  margin-right: 40px;
+  padding: 8px 32px;
+  width: 115px;
+}
+
+.save:hover {
+  background-color: rgb(151, 157, 172);
+  border-radius: 2px;
+}
+
+.save:active {
+  background-color: rgb(92, 103, 125);
+}
+

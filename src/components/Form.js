@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import '../style/Form.css';
+import icone from '../images/insert_link_24px.png';
 
 class Form extends React.Component {
   render() {
@@ -19,10 +20,13 @@ class Form extends React.Component {
       onSaveButtonClick,
     } = this.props;
     return (
-      <form>
+      <form className="form">
+        <h1 className="add-card">ADICIONE NOVAS CARTAS</h1>
         <label htmlFor="card-name">
+          Nome
           <input
             id="card-name"
+            className="card-name"
             type="text"
             data-testid="name-input"
             value={ cardName }
@@ -31,8 +35,10 @@ class Form extends React.Component {
           />
         </label>
         <label htmlFor="description">
+          Descrição
           <textarea
             id="description"
+            className="description"
             data-testid="description-input"
             value={ cardDescription }
             name="cardDescription"
@@ -40,8 +46,10 @@ class Form extends React.Component {
           />
         </label>
         <label htmlFor="attr1">
+          ATK
           <input
             id="attr1"
+            className="attr1"
             type="number"
             data-testid="attr1-input"
             value={ cardAttr1 }
@@ -50,8 +58,10 @@ class Form extends React.Component {
           />
         </label>
         <label htmlFor="attr2">
+          DEF
           <input
             id="attr2"
+            className="attr2"
             type="number"
             data-testid="attr2-input"
             value={ cardAttr2 }
@@ -60,8 +70,10 @@ class Form extends React.Component {
           />
         </label>
         <label htmlFor="attr3">
+          PWR
           <input
             id="attr3"
+            className="attr3"
             type="number"
             data-testid="attr3-input"
             value={ cardAttr3 }
@@ -69,49 +81,64 @@ class Form extends React.Component {
             onChange={ onInputChange }
           />
         </label>
-        <label htmlFor="card-image">
-          <input
-            id="card-image"
-            type="text"
-            data-testid="image-input"
-            value={ cardImage }
-            name="cardImage"
-            onChange={ onInputChange }
-          />
+        <label className="img" htmlFor="card-image">
+          Imagem
+          <section className="img-container">
+            <input
+              id="card-image"
+              className="card-image"
+              type="text"
+              data-testid="image-input"
+              value={ cardImage }
+              name="cardImage"
+              onChange={ onInputChange }
+            />
+            <div className="adereco-container">
+              <img src={ icone } alt="" />
+            </div>
+          </section>
         </label>
         <label htmlFor="rarity">
+          Raridade
           <select
             name="cardRare"
             id="rarity"
+            className="rarity"
             data-testid="rare-input"
             value={ cardRare }
             onChange={ onInputChange }
           >
+            <option value="selecione">Selecionar</option>
             <option value="normal">normal</option>
             <option value="raro">raro</option>
             <option value="muito raro">muito raro</option>
           </select>
         </label>
-        <label htmlFor="Super-Trunfo">
-          {hasTrunfo && <span>Você já tem um Super Trunfo em seu baralho</span>}
-          {!hasTrunfo && <input
-            id="Super-Trunfo"
-            type="checkbox"
-            data-testid="trunfo-input"
-            checked={ cardTrunfo }
-            name="cardTrunfo"
-            onChange={ onInputChange }
-          />}
-        </label>
-        <button
-          id="save"
-          type="button"
-          data-testid="save-button"
-          disabled={ isSaveButtonDisabled }
-          onClick={ onSaveButtonClick }
-        >
-          Salvar
-        </button>
+        <section className="submite-container">
+          <label htmlFor="Super-Trunfo">
+            {hasTrunfo && <span>Você já tem um Super Trunfo em seu baralho</span>}
+            {!hasTrunfo && <input
+              id="Super-Trunfo"
+              className="Super-Trunfo"
+              type="checkbox"
+              data-testid="trunfo-input"
+              checked={ cardTrunfo }
+              name="cardTrunfo"
+              onChange={ onInputChange }
+            />}
+            Super Trunfo
+          </label>
+          <button
+            id="save"
+            className="save"
+            type="button"
+            data-testid="save-button"
+            disabled={ isSaveButtonDisabled }
+            onClick={ onSaveButtonClick }
+          >
+            Salvar
+          </button>
+        </section>
       </form>
     );
   }
