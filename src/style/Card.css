@@ -1,8 +1,88 @@
+.animation-container {
+  align-items: center;
+  background-color: rgb(8, 16, 23);
+  display: flex;
+  height: 510px;
+  justify-content: center;
+  margin-top: 15px;
+  overflow: hidden;
+  position: relative;
+  width: 365px;
+}
+
+.animation-container:before {
+  animation: animate 5s linear infinite;
+  background: linear-gradient(rgb(255, 251, 245), #ff4655);
+  content: '';
+  height: 140%;
+  position: absolute;
+  width: 182.5px;
+}
+
+@keyframes animate {
+
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 .Card-container {
-  border-radius: 5px;
+  background: linear-gradient(#33415c, #001845);
+  color: rgb(255, 251, 245);
   display: flex;
   flex-direction: column;
-  height: 534.33px;
+  height: 495px;
+  justify-content: center;
   overflow: hidden;
-  width: 358.17px;
+  position: relative;
+  width: 350px;
+}
+
+.foto {
+  margin: auto;
+  width: 330px;
+}
+
+.name {
+  color: rgb(189, 57, 68);
+  padding-left: 10px;
+}
+
+.raridade {
+  color: rgb(189, 57, 68);
+  padding-left: 10px;
+}
+
+
+.descricao {
+  padding: 3px;
+  padding-left: 10px;
+}
+
+.attr {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.attr-container {
+  align-items: center;
+  background-color: rgb(8, 16, 23);
+  color: #ff4655;
+  display: flex;
+  height: 25px;
+  justify-content: space-between;
+  margin-bottom: 2px;
+  padding: 5px;
+  width: 90%;
+}
+
+.logo-trunfo {
+  height: 20px;
+  margin: auto;
+  width: 25px;
 }

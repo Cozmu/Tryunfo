@@ -1,9 +1,11 @@
 .Interface-container {
   background-color: white;
+  border-radius: 5px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  margin: 70px auto;
+  margin: auto;
+  padding-top: 15px;
   width: 90%;
 }
 
@@ -14,9 +16,11 @@
   width: 404px;
 }
 
-.add-card {
+.titulos {
+  display: flex;
+  justify-content: space-around;
   margin-bottom: 10px;
-  margin-left: 15px;
+  margin-right: 15px;
   width: 100%;
 }
 
@@ -25,6 +29,7 @@
   border-left: none;
   border-right: none;
   border-top: none;
+  font-family: Anton , sans-serif;
   font-size: 15px;
   height: 37px;
   margin-bottom: 5px;
@@ -38,6 +43,7 @@
   border-left: none;
   border-right: none;
   border-top: none;
+  font-family: Anton , sans-serif;
   font-size: 15px;
   height: 80px;
   margin-bottom: 5px;
@@ -49,6 +55,7 @@
 }
 
 .attr1 {
+  font-family: Anton , sans-serif;
   font-size: 15px;
   height: 37px;
   margin-bottom: 5px;
@@ -59,6 +66,7 @@
 }
 
 .attr2 {
+  font-family: Anton , sans-serif;
   font-size: 15px;
   height: 37px;
   margin-bottom: 5px;
@@ -69,6 +77,7 @@
 }
 
 .attr3 {
+  font-family: Anton , sans-serif;
   font-size: 15px;
   height: 37px;
   margin-bottom: 5px;
@@ -87,6 +96,7 @@
 }
 
 .card-image {
+  font-family: Anton , sans-serif;
   font-size: 15px;
   height: 37px;
   margin-bottom: 5px;
@@ -110,6 +120,7 @@
   border-right: none;
   border-top: none;
   cursor: pointer;
+  font-family: Anton , sans-serif;
   height: 40px;
   margin-bottom: 10px;
   outline: 0;
@@ -130,6 +141,7 @@
 
 .save {
   cursor: pointer;
+  font-family: Anton , sans-serif;
   height: 40px;
   margin-right: 40px;
   padding: 8px 32px;

@@ -21,9 +21,9 @@ class Form extends React.Component {
     } = this.props;
     return (
       <form className="form">
-        <h1 className="add-card">ADICIONE NOVAS CARTAS</h1>
         <label htmlFor="card-name">
           Nome
+          <br />
           <input
             id="card-name"
             className="card-name"

@@ -1,0 +1,26 @@
+.Cards {
+  background-color: #001d3d;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: auto;
+  width: 90%;
+}
+
+.component {
+  display: flex;
+  flex-direction: column;
+}
+
+.delete-button {
+  background-color: #ff4655;
+  border: none;
+  border-radius: 3px;
+  color: white;
+  font-family: Anton , sans-serif;
+  height: 35px;
+  margin: 15px auto;
+  width: 30%;
+}

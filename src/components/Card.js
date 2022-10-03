@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import '../style/Card.css';
+import logoVAVA from '../images/vava1.png';
 
 class Card extends React.Component {
   render() {
@@ -15,24 +16,35 @@ class Card extends React.Component {
       cardTrunfo,
     } = this.props;
     return (
-      <div className="Card-container">
-        <h2 data-testid="name-card">{cardName}</h2>
-        <p data-testid="rare-card">{cardRare}</p>
-        <img src={ cardImage } alt={ cardName } data-testid="image-card" />
-        <p data-testid="description-card">{cardDescription}</p>
-        <section className="attr1-container">
-          <p>ATK</p>
-          <p data-testid="attr1-card">{cardAttr1}</p>
+      <div>
+        <section className="animation-container">
+          <div className="Card-container">
+            <h2 className="name" data-testid="name-card">{cardName}</h2>
+            <p className="raridade" data-testid="rare-card">{cardRare}</p>
+            <img
+              className="foto"
+              src={ cardImage }
+              alt={ cardName }
+              data-testid="image-card"
+            />
+            <p className="descricao" data-testid="description-card">{cardDescription}</p>
+            <div className="attr">
+              <section className="attr-container">
+                <p>ATK</p>
+                <p data-testid="attr1-card">{cardAttr1}</p>
+              </section>
+              <section className="attr-container">
+                <p>DEF</p>
+                <p data-testid="attr2-card">{cardAttr2}</p>
+              </section>
+              <section className="attr-container">
+                <p>PWR</p>
+                <p data-testid="attr3-card">{cardAttr3}</p>
+              </section>
+            </div>
+            { cardTrunfo && <img className="logo-trunfo" src={ logoVAVA } alt="" />}
+          </div>
         </section>
-        <section className="attr2-container">
-          <p>DEF</p>
-          <p data-testid="attr2-card">{cardAttr2}</p>
-        </section>
-        <section className="attr3-container">
-          <p>PWR</p>
-          <p data-testid="attr3-card">{cardAttr3}</p>
-        </section>
-        { cardTrunfo && <p data-testid="trunfo-card">Super Trunfo</p> }
       </div>
     );
   }
@@ -50,3 +62,4 @@ Card.propTypes = {
 }.isRequired;
 
 export default Card;
+// <p className="trunfo-card" data-testid="trunfo-card">Super Trunfo</p>

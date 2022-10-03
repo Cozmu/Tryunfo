@@ -1,6 +1,10 @@
 import React from 'react';
 import Form from './components/Form';
 import Card from './components/Card';
+import './style/CardsSave.css';
+import './style/Filter.css';
+import vava from './images/vava1.png';
+import valorantCards from './images/valorantCards1.png';
 
 class App extends React.Component {
   state = {
@@ -100,7 +104,15 @@ class App extends React.Component {
     const lower = searchValue.toLocaleLowerCase();
     return (
       <>
+        <div className="cabecalho-container">
+          <img className="cabecalho" src={ vava } alt="vava" />
+          <img className="cabecalho" src={ valorantCards } alt="cabeçalho" />
+        </div>
         <section className="Interface-container">
+          <div className="titulos">
+            <h1>ADICIONE NOVAS CARTAS</h1>
+            <h1>PRÉ-VISUALIZAÇÃO</h1>
+          </div>
           <Form
             { ...this.state }
             onInputChange={ this.onInputChange }
@@ -111,11 +123,14 @@ class App extends React.Component {
         </section>
         <section className="filter-container">
           <label htmlFor="pesquisa">
+            Filtros de Busca
             <input
               id="pesquisa"
+              className="pesquisa"
               type="text"
               data-testid="name-filter"
               value={ searchValue }
+              placeholder="Nome da Carta"
               onChange={ this.handleSearchValue }
               disabled={ trunfoFilter }
             />
@@ -125,6 +140,7 @@ class App extends React.Component {
               onChange={ this.onInputChange }
               name="raridade"
               id="rare-filter"
+              className="rare-filter"
               data-testid="rare-filter"
               disabled={ trunfoFilter }
             >
@@ -135,15 +151,16 @@ class App extends React.Component {
             </select>
           </label>
           <label htmlFor="trunfo-filter">
-            Super Trunfo
             <input
               id="trunfo-filter"
+              className="trunfo-filter"
               type="checkbox"
               data-testid="trunfo-filter"
               name="trunfoFilter"
               checked={ trunfoFilter }
               onChange={ this.onInputChange }
             />
+            Super Trunfo
           </label>
         </section>
         <section id="remove-pai" className="Cards">
@@ -151,13 +168,14 @@ class App extends React.Component {
           && (raridade === 'todas' || raridade === card.cardRare)
           && (trunfoFilter === false || card.cardTrunfo === trunfoFilter))
             .map((element, index) => (
-              <article key={ index }>
+              <article className="component" key={ index }>
                 <Card
                   { ...element }
                 />
                 <button
                   data-testid="delete-button"
                   type="button"
+                  className="delete-button"
                   onClick={ () => this.HandleRemoveCards(element.cardName) }
                 >
                   Excluir
