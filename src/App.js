@@ -123,7 +123,7 @@ class App extends React.Component {
         </section>
         <section className="filter-container">
           <label htmlFor="pesquisa">
-            Filtros de Busca
+            Filtro de Busca
             <input
               id="pesquisa"
               className="pesquisa"
@@ -136,6 +136,7 @@ class App extends React.Component {
             />
           </label>
           <label htmlFor="rare-filter">
+            Raridade
             <select
               onChange={ this.onInputChange }
               name="raridade"
