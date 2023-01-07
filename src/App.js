@@ -23,6 +23,14 @@ class App extends React.Component {
     trunfoFilter: false,
   };
 
+  componentDidMount() {
+    const { savedCard } = this.state;
+    if (savedCard.some(({ cardTrunfo }) => cardTrunfo === true)) {
+      console.log('entrou');
+      this.setState({ hasTrunfo: true });
+    }
+  }
+
   isSaveButtonDisabled = () => {
     const { cardName, cardDescription, cardImage, cardRare } = this.state;
     const { cardAttr1, cardAttr2, cardAttr3 } = this.state;
@@ -94,7 +102,9 @@ class App extends React.Component {
   HandleRemoveCards = (nome) => {
     const { savedCard } = this.state;
     const cards = savedCard.filter(({ cardName }) => cardName !== nome);
+    console.log(cards);
     const reset = cards.some(({ hasTrunfo }) => hasTrunfo === false);
+    console.log(reset);
     this.setState({ savedCard: cards, hasTrunfo: reset }, () => {
       // eslint-disable-next-line no-shadow
       const { savedCard } = this.state;
