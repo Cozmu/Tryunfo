@@ -5,6 +5,7 @@ import './style/CardsSave.css';
 import './style/Filter.css';
 import vava from './images/vava1.png';
 import valorantCards from './images/valorantCards1.png';
+import prevView from './mocks/prevView';
 
 class App extends React.Component {
   state = {
@@ -17,18 +18,11 @@ class App extends React.Component {
     cardRare: '',
     cardTrunfo: false,
     hasTrunfo: false,
-    savedCard: JSON.parse(localStorage.getItem('CardsSave')) || [],
+    savedCard: prevView,
     searchValue: '',
     raridade: 'todas',
     trunfoFilter: false,
   };
-
-  componentDidMount() {
-    const { savedCard } = this.state;
-    if (savedCard.some(({ cardTrunfo }) => cardTrunfo === true)) {
-      this.setState({ hasTrunfo: true });
-    }
-  }
 
   isSaveButtonDisabled = () => {
     const { cardName, cardDescription, cardImage, cardRare } = this.state;
@@ -92,21 +86,14 @@ class App extends React.Component {
       cardTrunfo: false,
       savedCard: [...prev.savedCard, newCard],
       hasTrunfo: [...prev.savedCard, newCard].some((card) => card.cardTrunfo),
-    }), () => {
-      const { savedCard } = this.state;
-      localStorage.setItem('CardsSave', JSON.stringify(savedCard));
-    });
+    }));
   };
 
   HandleRemoveCards = (nome) => {
     const { savedCard } = this.state;
     const cards = savedCard.filter(({ cardName }) => cardName !== nome);
     const reset = cards.some(({ hasTrunfo }) => hasTrunfo === false);
-    this.setState({ savedCard: cards, hasTrunfo: reset }, () => {
-      // eslint-disable-next-line no-shadow
-      const { savedCard } = this.state;
-      localStorage.setItem('CardsSave', JSON.stringify(savedCard));
-    });
+    this.setState({ savedCard: cards, hasTrunfo: reset });
   };
 
   handleSearchValue = (e) => {
