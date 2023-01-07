@@ -17,7 +17,7 @@ class App extends React.Component {
     cardRare: '',
     cardTrunfo: false,
     hasTrunfo: false,
-    savedCard: [],
+    savedCard: JSON.parse(localStorage.getItem('CardsSave')) || [],
     searchValue: '',
     raridade: 'todas',
     trunfoFilter: false,
@@ -85,13 +85,17 @@ class App extends React.Component {
       cardTrunfo: false,
       savedCard: [...prev.savedCard, newCard],
       hasTrunfo: [...prev.savedCard, newCard].some((card) => card.cardTrunfo),
-    }));
+    }), () => {
+      // const { savedCard } = this.state;
+      // localStorage.setItem('CardsSave', JSON.stringify(savedCard));
+    });
   };
 
   HandleRemoveCards = (nome) => {
     const { savedCard } = this.state;
     const cards = savedCard.filter(({ cardName }) => cardName !== nome);
-    const reset = savedCard.some(({ hasTrunfo }) => hasTrunfo !== false); // bug aqui :(
+    const reset = cards.some(({ hasTrunfo }) => hasTrunfo === false);
+    console.log(reset);
     this.setState({ savedCard: cards, hasTrunfo: reset });
   };
 
