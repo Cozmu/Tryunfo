@@ -86,8 +86,8 @@ class App extends React.Component {
       savedCard: [...prev.savedCard, newCard],
       hasTrunfo: [...prev.savedCard, newCard].some((card) => card.cardTrunfo),
     }), () => {
-      // const { savedCard } = this.state;
-      // localStorage.setItem('CardsSave', JSON.stringify(savedCard));
+      const { savedCard } = this.state;
+      localStorage.setItem('CardsSave', JSON.stringify(savedCard));
     });
   };
 
@@ -95,8 +95,11 @@ class App extends React.Component {
     const { savedCard } = this.state;
     const cards = savedCard.filter(({ cardName }) => cardName !== nome);
     const reset = cards.some(({ hasTrunfo }) => hasTrunfo === false);
-    console.log(reset);
-    this.setState({ savedCard: cards, hasTrunfo: reset });
+    this.setState({ savedCard: cards, hasTrunfo: reset }, () => {
+      // eslint-disable-next-line no-shadow
+      const { savedCard } = this.state;
+      localStorage.setItem('CardsSave', JSON.stringify(savedCard));
+    });
   };
 
   handleSearchValue = (e) => {
