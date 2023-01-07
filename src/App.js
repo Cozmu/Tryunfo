@@ -5,7 +5,6 @@ import './style/CardsSave.css';
 import './style/Filter.css';
 import vava from './images/vava1.png';
 import valorantCards from './images/valorantCards1.png';
-import prevView from './mocks/prevView';
 
 class App extends React.Component {
   state = {
