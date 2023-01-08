@@ -22,6 +22,7 @@
 - Possível marcar uma carta como 'Super Trunfo' (simulando um coringa).
 - Possível visualizar lista de cartas salvas.
 - Possível filtrar cartas salvas por nome, raridade e Super Trunfo.
+- Possível excluir cartas da coleção.
 
 ## Como executar:
 
