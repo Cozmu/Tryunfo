@@ -20,6 +20,7 @@
 - Possível escolher nome, descrição, imagem e raridade para sua carta.
 - Possível escolher atributos para sua carta (com limite de 210 pontos no total e 90 para cada).
 - Possível marcar uma carta como 'Super Trunfo' (simulando um coringa).
+- Possível observar pré-visualização da carta que está sendo montada.
 - Possível visualizar lista de cartas salvas.
 - Possível filtrar cartas salvas por nome, raridade e Super Trunfo.
 - Possível excluir cartas da coleção.
