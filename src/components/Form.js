@@ -4,6 +4,12 @@ import '../style/Form.css';
 import icone from '../images/insert_link_24px.png';
 
 class Form extends React.Component {
+  calculateRemainingAttributes = () => {
+    const { maxAtributes, cardAttr1, cardAttr2, cardAttr3 } = this.props;
+    const sumAtributes = Number(cardAttr1) + Number(cardAttr2) + Number(cardAttr3);
+    return maxAtributes - sumAtributes;
+  };
+
   render() {
     const {
       cardName,
@@ -19,6 +25,7 @@ class Form extends React.Component {
       onInputChange,
       onSaveButtonClick,
     } = this.props;
+
     return (
       <form className="form">
         <label htmlFor="card-name">
@@ -48,6 +55,7 @@ class Form extends React.Component {
         <label htmlFor="attr1">
           ATK
           <input
+            placeholder="MAX : 90"
             id="attr1"
             className="attr1"
             type="number"
@@ -60,6 +68,7 @@ class Form extends React.Component {
         <label htmlFor="attr2">
           DEF
           <input
+            placeholder="MAX : 90"
             id="attr2"
             className="attr2"
             type="number"
@@ -72,6 +81,7 @@ class Form extends React.Component {
         <label htmlFor="attr3">
           PWR
           <input
+            placeholder="MAX : 90"
             id="attr3"
             className="attr3"
             type="number"
@@ -81,8 +91,11 @@ class Form extends React.Component {
             onChange={ onInputChange }
           />
         </label>
+        <span className="calculate-remaining-attributes">
+          {`Pontos restantes : ${this.calculateRemainingAttributes()}`}
+        </span>
         <label className="img" htmlFor="card-image">
-          Imagem
+          <span>Imagem</span>
           <section className="img-container">
             <input
               id="card-image"
@@ -91,6 +104,7 @@ class Form extends React.Component {
               data-testid="image-input"
               value={ cardImage }
               name="cardImage"
+              placeholder="Colar link"
               onChange={ onInputChange }
             />
             <div className="adereco-container">
@@ -116,17 +130,21 @@ class Form extends React.Component {
         </label>
         <section className="submite-container">
           <label htmlFor="Super-Trunfo">
-            {hasTrunfo && <span>Você já tem um Super Trunfo em seu baralho</span>}
-            {!hasTrunfo && <input
-              id="Super-Trunfo"
-              className="Super-Trunfo"
-              type="checkbox"
-              data-testid="trunfo-input"
-              checked={ cardTrunfo }
-              name="cardTrunfo"
-              onChange={ onInputChange }
-            />}
-            Super Trunfo
+            {hasTrunfo && <p>Você já tem um Super Trunfo em seu baralho</p>}
+            {!hasTrunfo
+            && (
+              <div>
+                <input
+                  id="Super-Trunfo"
+                  className="Super-Trunfo"
+                  type="checkbox"
+                  data-testid="trunfo-input"
+                  checked={ cardTrunfo }
+                  name="cardTrunfo"
+                  onChange={ onInputChange }
+                />
+                <span>Super Trunfo</span>
+              </div>)}
           </label>
           <button
             id="save"
@@ -139,6 +157,7 @@ class Form extends React.Component {
             Salvar
           </button>
         </section>
+
       </form>
     );
   }

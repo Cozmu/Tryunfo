@@ -22,18 +22,20 @@ class App extends React.Component {
     searchValue: '',
     raridade: 'todas',
     trunfoFilter: false,
+    maxAtributes: 210,
   };
 
   isSaveButtonDisabled = () => {
-    const { cardName, cardDescription, cardImage, cardRare } = this.state;
+    const { cardName, cardDescription, cardImage, cardRare, maxAtributes } = this.state;
     const { cardAttr1, cardAttr2, cardAttr3 } = this.state;
     const MaxLeagth = 90;
-    const max = 210;
+    // const max = 210;
     const sum = Number(cardAttr1) + Number(cardAttr2) + Number(cardAttr3);
     const atributoUm = cardAttr1 > MaxLeagth || cardAttr1 < 0;
     const atributoDois = cardAttr2 > MaxLeagth || cardAttr2 < 0;
     const atributoTres = cardAttr3 > MaxLeagth || cardAttr3 < 0;
-    if (sum > max) {
+    if (sum > maxAtributes) {
+      console.log('entrou');
       return true;
     }
     if (atributoUm || atributoDois || atributoTres) {

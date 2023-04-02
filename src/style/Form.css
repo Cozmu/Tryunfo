@@ -88,7 +88,20 @@
 }
 
 .img {
+  align-items: center;
   display: flex;
+}
+
+.img span {
+  margin-bottom: 5px;
+}
+
+.calculate-remaining-attributes {
+  font-size: 12px;
+  font-weight: 100;
+  margin: 5px 0;
+  text-align: end;
+  width: 88%;
 }
 
 .img-container {
@@ -133,6 +146,11 @@
   align-items: center;
   display: flex;
   justify-content: space-between;
+  width: 90%;
+}
+
+.submite-container p {
+  font-size: 13px;
 }
 
 .Super-Trunfo {
@@ -144,7 +162,6 @@
   cursor: pointer;
   font-family: Anton , sans-serif;
   height: 40px;
-  margin-right: 40px;
   padding: 8px 32px;
   width: 115px;
 }
@@ -157,4 +174,3 @@
 .save:active {
   background-color: rgb(92, 103, 125);
 }
-
